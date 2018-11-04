@@ -1,0 +1,1 @@
+<img src="{{ asset('/content') }}/{{ $image }}" alt="Portfolio item">

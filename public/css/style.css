@@ -1,0 +1,247 @@
+.portfolio-item{
+    margin-bottom:25px;
+}
+
+#portfolio-items{
+    margin-top:25px;
+}
+
+footer{
+    margin-bottom:25px;
+    margin-top:40px;
+}
+
+.highlight{
+    color:#f39c12;
+}
+
+.placeholder{
+    background-color:magenta;
+    color:yellow;
+}
+
+#banner{
+    margin:0 auto;
+    min-width:50%;
+    height:200px;
+    background-size:cover;
+    background-position:50% 50%;
+    border: 1px solid rgba(0,0,0,.05);
+}
+
+.nav2-item{
+    padding-top:11px;
+    padding-bottom:11px;
+    background-color: #50575f;
+    border-bottom:2px solid #fff;
+    color:#fff;
+    transition:all 200ms ease;
+    opacity:0.9;
+}
+
+#menu-items:hover > a{
+    opacity:0.9;
+    color:#fff;
+    text-decoration:none;
+}
+
+#menu-items:hover > a:hover{
+    opacity:1;
+}
+
+#menu-items .nav2-selected{
+    opacity:1;
+    background-color:#f39c12;
+}
+
+#menu-items > a:first-child{
+    border-bottom-left-radius:75px;
+}
+
+#menu-items > a:last-child{
+    border-bottom-right-radius:75px;
+}
+
+#add-new{
+    font-size:14px;
+}
+
+#checkbox-new-item{
+    min-width:200px;
+    margin:6px;
+    margin-left:20px;
+}
+
+.adm-portfolio-item{
+    width:100%;
+    border:1px solid #ccc;
+    border-radius:3.2px;
+    background-color:#fff;
+}
+
+.adm-portfolio-item .item-views{
+    margin-right:5px;
+}
+
+.adm-portfolio-item:not(:first-child){
+    margin-top:10px;
+}
+
+.adm-portfolio-item .item-name{
+    float:left;
+    font-size:18px;
+}
+
+.adm-portfolio-item .inner-item{
+    padding:10px;
+    padding-left:15px;
+    padding-right:15px;
+}
+
+.adm-portfolio-item .item-name-count{
+    opacity:0.5;
+    font-size:12px;
+}
+
+.adm-portfolio-item .put-right{
+    float:right;
+}
+
+.onoffswitch {
+    margin-left:-20px;
+    position: relative;
+    width: 55px;
+    display: inline-block;
+    font-size: 80%;
+}
+.onoffswitch .onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid hsl(0, 0%, 90%);
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    border-radius: 20px;
+    margin: 0;
+}
+.onoffswitch .onoffswitch-inner {
+    width: 200%;
+    margin-left: -100%;
+    -webkit-transition: margin 0.15s ease-in-out;
+    -o-transition: margin 0.15s ease-in-out;
+    -moz-transition: margin 0.15s ease-in-out;
+    transition: margin 0.15s ease-in-out;
+}
+.onoffswitch .onoffswitch-inner:before,
+.onoffswitch .onoffswitch-inner:after {
+    float: left;
+    width: 50%;
+    height: 24px;
+    padding: 0;
+    line-height: 24px;
+    font-size: 80%;
+    color: hsl(0, 0%, 100%);
+    font-weight: normal;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.onoffswitch .onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: hsl(207, 71%, 53%);
+    color: hsl(0, 0%, 100%);
+}
+.onoffswitch .onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: hsl(0, 0%, 98%);
+    color: hsl(0, 0%, 24%);
+    text-align: right;
+}
+.onoffswitch .onoffswitch-switch {
+    width: 22px;
+    height: 22px;
+    margin: 0;
+    background: hsl(0, 0%, 100%);
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    bottom: 0;
+    right: 35px;
+    -webkit-transition: right 0.15s ease-in-out;
+    -o-transition: right 0.15s ease-in-out;
+    -moz-transition: right 0.15s ease-in-out;
+    transition: right 0.15s ease-in-out;
+}
+.toggle-group {
+    position: relative;
+    height: 27px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    top: 50%;
+    left: 20px;
+}
+.toggle-group input[type=checkbox] {
+    position: absolute;
+    left: 10px;
+}
+.toggle-group input[type=checkbox]:checked ~ .onoffswitch .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.toggle-group input[type=checkbox]:checked ~ .onoffswitch .onoffswitch-label .onoffswitch-switch {
+    right: 1px;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+}
+.toggle-group input[type=checkbox]:focus ~ .onoffswitch {
+    outline: thin dotted #333;
+    outline: 0;
+}
+.toggle-group label {
+    position: absolute;
+    cursor: pointer;
+    padding-left: 40px;
+    padding-top:2px;
+    display: inline-block;
+    text-align: left;
+    line-height: 24px;
+    width: 100%;
+    z-index: 1;
+    height: 24px;
+    font-weight: 200;
+}
+
+.aural {
+    clip: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    overflow: hidden;
+    position: absolute;
+    width: 1px;
+}
+.aural:focus {
+    clip: rect(0, 0, 0, 0);
+    font-size: 1em;
+    height: auto;
+    outline: thin dotted;
+    position: static !important;
+    width: auto;
+    overflow: visible;
+}
+
+#portfolio-items ::-moz-selection {
+    color:black;
+    background:rgba(3,2,1,0);
+}
+
+#portfolio-items ::selection {
+    color:black;
+    background:rgba(3,2,1,0);
+}
+
+#no-items{
+    position:relative;
+    margin:0 auto;
+    margin-top:75px;
+}
