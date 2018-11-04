@@ -47,7 +47,7 @@ footer{
 }
 
 .highlight{
-    color:#f39c12;
+    color:#0984e3;
 }
 
 .placeholder{
@@ -64,13 +64,17 @@ footer{
 }
 
 .nav2-item{
-    padding-top:11px;
-    padding-bottom:11px;
-    background-color: #50575f;
-    border-bottom:2px solid #50575f;
+    padding-top:14px;
+    padding-bottom:14px;
+    background-color: #474f57;
+    border-bottom:3px solid #68737f;
     color:#fff;
     transition:all 200ms ease;
     opacity:1;
+}
+
+.nav2-item:hover{
+    border-bottom:3px solid #4c9be3;
 }
 
 #menu-items:hover > a{
@@ -79,27 +83,24 @@ footer{
     text-decoration:none;
 }
 
-#menu-items-wrap .row, .container-fluid{
-    padding-left:0;
-    padding-right:0;
-    margin-left:0;
-    margin-right:0;
-}
-
-#menu-items:hover > a:hover{
+#menu-items-wrap .row, .container-fluid {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 #menu-items:hover > a:hover i{
-    color:#f39c12;
+    color:#4c9be3;
 }
 
 #menu-items .nav2-selected{
-    background-color: #616972;
-    font-weight:bold;
+    background-color: #40474e;
+    border-bottom:3px solid #4c9be3;
 }
 
 #menu-items .nav2-selected i{
-    color:#f39c12;
+    color: #4c9be3;
 }
 
 #add-new{
