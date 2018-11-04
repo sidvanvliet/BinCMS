@@ -1,5 +1,10 @@
 @extends('layouts.app')
 
+@section('title')
+    {{--{{ strlen($item->item_name) > 8 ? substr($item->item_name, 0, 8) . ".." : $item->item_name }} ---}}
+    {{ $item->item_name }} |
+@endsection
+
 @section('content')
     <div class="container">
 

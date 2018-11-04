@@ -9,7 +9,7 @@
     <meta name="keywords" content="{{ \App\Helpers\SettingHelper::setting('seo_keywords') }}">
     <meta name="description" content="{{ \App\Helpers\SettingHelper::setting('seo_description') }}">
 
-    <title>{{ \App\Helpers\SettingHelper::setting('name') }}</title>
+    <title>@yield('title'){{ \App\Helpers\SettingHelper::setting('name') }}</title>
 
     <script src="{{ asset('js/app.js') }}" defer></script>
 

@@ -7,7 +7,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>{{ config('app.name', 'Laravel') }} Admin</title>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
@@ -25,7 +25,7 @@
         <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="z-index:945238">
             <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }} <span class="highlight">Admin</span>
+                    <i class="mdi mdi-flower-tulip"></i> {{ config('app.name') }} <span class="highlight">Admin</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
                     <span class="navbar-toggler-icon"></span>
@@ -69,7 +69,7 @@
                 </a>
 
                 <a href="{{ Route('admin.seo') }}" class="col nav2-item {{ Request::is('admin/seo') ? 'nav2-selected' : '' }}">
-                    <i class="mdi mdi-google-circles-extended"></i>
+                    <i class="mdi mdi-chart-bar"></i>
                     SEO
                 </a>
 

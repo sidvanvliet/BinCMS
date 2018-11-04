@@ -203,7 +203,7 @@ class AdminController extends Controller
 
     public function ajaxReqItems()
     {
-        return view('admin.ajax.portfolio-items')->with('items', Portfolio::listItems());
+        return view('admin.ajax.portfolio-items')->with('items', Portfolio::adminListItems());
     }
 
 }

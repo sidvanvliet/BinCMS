@@ -26,26 +26,29 @@ class Portfolio extends Model
         return $item;
     }
 
-    public static function listItems($add_views = false, $paginate = false)
+    public static function adminListItems()
     {
-        if($paginate == true)
-        {
-            $items = Portfolio::where('item_is_public', '=', '1')->whereNull('deleted_at')->paginate(SettingHelper::setting('paginate'));
-        } else {
-            $items = Portfolio::where('item_is_public', '=', '1')->whereNull('deleted_at')->get();
-        }
+        $items = Portfolio::whereNull('deleted_at');
 
-        if($add_views == true)
-        {
-            foreach($items as $item)
-            {
-                $db_item = Portfolio::where('id', $item->id);
-                $newcount = $db_item->get()[0]->homepage_views + 1;
+        $items = Portfolio::whereNull('deleted_at')->get();
 
-                $db_item->update(
-                    ['homepage_views' => $newcount]
-                );
-            }
+        return $items;
+    }
+
+    public static function listItems()
+    {
+        $items = Portfolio::whereNull('deleted_at');
+
+        $items = Portfolio::where('item_is_public', '=', '1')->whereNull('deleted_at')->paginate(SettingHelper::setting('paginate'));
+
+        foreach($items as $item)
+        {
+            $db_item = Portfolio::where('id', $item->id);
+            $newcount = $db_item->get()[0]->homepage_views + 1;
+
+            $db_item->update(
+                ['homepage_views' => $newcount]
+            );
         }
 
         return $items;

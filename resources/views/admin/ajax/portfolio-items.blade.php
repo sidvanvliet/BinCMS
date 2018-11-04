@@ -23,6 +23,7 @@ function returnNumber($int)
                 <span class="put-right">
 
                         <small class="item-views col-sm-12">
+                            {!! $item->item_is_public == 0 ? "Private item |  " : "" !!}
                             <b>{{ number_format($item->homepage_views) }}</b> times shown, <b>{{ number_format($item->item_views) }}</b> views
                         </small>
 

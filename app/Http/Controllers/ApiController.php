@@ -9,7 +9,6 @@ class ApiController extends Controller
 {
     public function image($id)
     {
-        $image = Media::item($id);
-        return $image;
+        return Media::item($id);
     }
 }
