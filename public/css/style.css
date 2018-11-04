@@ -9,6 +9,11 @@
     transition:all 200ms ease;
 }
 
+.card-title a{
+    color:#1f1f1f;
+    font-weight:bold;
+}
+
 .item:hover{
     cursor:pointer;
     box-shadow:9px 9px 35px rgba(1,1,1,0.14);
@@ -24,6 +29,10 @@
 
 .item-wrap{
     margin-bottom:25px;
+}
+
+#big-delete-sign{
+    font-size:72px;
 }
 
 #portfolio-items{

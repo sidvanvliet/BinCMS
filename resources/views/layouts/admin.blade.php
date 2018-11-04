@@ -68,9 +68,9 @@
                     Portfolio
                 </a>
 
-                <a href="#" class="col nav2-item {{ Request::is('admin/') ? 'nav2-selected' : '' }}">
-                    <i class="mdi mdi-google-analytics"></i>
-                    Data insights
+                <a href="{{ Route('admin.seo') }}" class="col nav2-item {{ Request::is('admin/seo') ? 'nav2-selected' : '' }}">
+                    <i class="mdi mdi-google-circles-extended"></i>
+                    SEO
                 </a>
 
                 <a href="{{ Route('admin.settings') }}" class="col nav2-item {{ Request::is('admin/settings') ? 'nav2-selected' : '' }}">

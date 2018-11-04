@@ -35,5 +35,22 @@ class DefaultSettings extends Seeder
             'setting'   => 'subtitle',
             'value'     => 'Welcome to my portfolio!',
         ]);
+
+        // SEO settings
+
+        DB::table('settings')->insert([
+            'setting'   => 'seo_keywords',
+            'value'     => '',
+        ]);
+
+        DB::table('settings')->insert([
+            'setting'   => 'seo_language',
+            'value'     => 'en',
+        ]);
+
+        DB::table('settings')->insert([
+            'setting'   => 'seo_description',
+            'value'     => 'Welcome to my portfolio',
+        ]);
     }
 }

@@ -10,8 +10,13 @@ Route::middleware(['auth', 'restrict'])->group(function () {
     Route::prefix('admin')->group(function () {
 
         Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
+
+        Route::get('seo', 'AdminController@seo')->name('admin.seo');
+        Route::post('seo', 'AdminController@updateSeo')->name('admin.updateSEO');
+
         Route::get('settings', 'AdminController@settings')->name('admin.settings');
         Route::post('settings', 'AdminController@updateSettings')->name('admin.updateSettings');
+
         Route::get('styling', 'AdminController@styling')->name('admin.styling');
         Route::post('styling', 'AdminController@stylingUpdate');
 

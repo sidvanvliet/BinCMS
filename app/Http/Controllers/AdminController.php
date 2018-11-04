@@ -19,7 +19,33 @@ class AdminController extends Controller
 
     public function settings()
     {
-        return view('admin.settings')->with('settings', Setting::all());
+        return view('admin.settings');
+    }
+
+    public function seo()
+    {
+        return view('admin.seo');
+    }
+
+    public function updateSeo(Request $request)
+    {
+        $setting = Setting::where('setting', 'seo_keywords')->first();
+        $setting->value = $request['seo_keywords'];
+        $setting->save();
+
+        $setting = Setting::where('setting', 'seo_language')->first();
+        $setting->value = $request['seo_language'];
+        $setting->save();
+
+        $setting = Setting::where('setting', 'seo_description')->first();
+        $setting->value = $request['seo_description'];
+        $setting->save();
+
+        Session::flash('title', 'All done!');
+        Session::flash('message', 'Your SEO settings have been saved.');
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('/admin/dashboard');
     }
 
     public function updateSettings(Request $request)
@@ -53,6 +79,7 @@ class AdminController extends Controller
         $setting->value = $request['subtitle'];
         $setting->save();
 
+        Session::flash('title', 'All done!');
         Session::flash('message', 'Settings saved.');
         Session::flash('alert-class', 'alert-success');
 
