@@ -201,9 +201,13 @@ class AdminController extends Controller
 
     }
 
-    public function ajaxReqItems()
+    public function ajaxReqItems(Request $request)
     {
-        return view('admin.ajax.portfolio-items')->with('items', Portfolio::adminListItems());
+        $animate = true;
+        if($request->has('no-animation')){
+            $animate = false;
+        }
+        return view('admin.ajax.portfolio-items')->with('items', Portfolio::adminListItems())->with('animate', $animate);
     }
 
 }

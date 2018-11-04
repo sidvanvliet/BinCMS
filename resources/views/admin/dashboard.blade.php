@@ -48,7 +48,7 @@
             setInterval(function(){
                 if($("#on-off-switch").is(':checked') == true)
                 {
-                    $('#portfolio-items').load('/admin/dashboard/data:items');
+                    $('#portfolio-items').load('/admin/dashboard/data:items?no-animation');
                 }
             }, 1000);
 

@@ -61,7 +61,7 @@
         </nav>
 
         <div id="menu-items-wrap">
-            <div class="row container-fluid text-center" id="menu-items" data-aos="fade-down" data-aos-duration="600">
+            <div class="row container-fluid text-center" id="menu-items">
 
                 <a href="{{ Route('admin.dashboard') }}" class="col nav2-item {{ Request::is('admin/dashboard') ? 'nav2-selected' : '' }}">
                     <i class="mdi mdi-playlist-edit"></i>

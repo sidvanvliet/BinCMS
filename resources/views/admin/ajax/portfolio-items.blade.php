@@ -9,11 +9,12 @@ function returnNumber($int)
         return $int;
     }
 }
+$delay = 0;
 ?>
 @if(count($items) != 0)
     @foreach($items as $item)
-        <?php $count++; ?>
-        <div class="adm-portfolio-item">
+        <?php $count++; $delay += 50; ?>
+        <div class="adm-portfolio-item" {!! $animate == true ? 'data-aos="fade" data-aos-delay="' . $delay . '"' : "" !!}>
             <div class="inner-item">
 
                 <span class="item-name">
