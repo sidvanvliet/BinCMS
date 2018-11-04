@@ -17,7 +17,7 @@
                             <h4 class="card-title">
                                 <a href="{{ url('/post-' . $item->id) }}">{{ $item->item_name }}</a>
                             </h4>
-                            <p class="card-text">{{ substr($item->item_description, 0, 220) }}<?php if(strlen($item->item_description) > 219) { echo "..."; } ?></p>
+                            <p class="card-text">{{ substr($item->item_description, 0, 120) }}<?php if(strlen($item->item_description) > 219) { echo "..."; } ?></p>
                         </div>
                     </div>
                 </div>

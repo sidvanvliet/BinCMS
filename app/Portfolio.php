@@ -39,7 +39,7 @@ class Portfolio extends Model
     {
         $items = Portfolio::whereNull('deleted_at');
 
-        $items = Portfolio::where('item_is_public', '=', '1')->whereNull('deleted_at')->paginate(SettingHelper::setting('paginate'));
+        $items = Portfolio::where('item_is_public', '=', '1')->whereNull('deleted_at')->orderBy('id', 'desc')->paginate(SettingHelper::setting('paginate'));
 
         foreach($items as $item)
         {
