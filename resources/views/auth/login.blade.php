@@ -5,9 +5,10 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="text-center mt-5">
-                <h1>DBDPortfolio</h1>
+                <h1><i class="mdi mdi-account-group"></i></h1>
+                <p>Authenticate yourself</p>
             </div>
-            <div class="mt-3"></div>
+            <div class="mt-4"></div>
 
             <div>
                 <form method="POST" action="{{ route('login') }}">

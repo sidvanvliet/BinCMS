@@ -1,4 +1,19 @@
-.portfolio-item{
+.item{
+    box-shadow:9px 9px 20px rgba(1,1,1,0.03);
+    border:0;
+    transition:all 300ms ease;
+}
+
+.item:hover{
+    cursor:pointer;
+    box-shadow:9px 9px 35px rgba(1,1,1,0.14);
+}
+
+.card-title a:hover{
+    text-decoration: none;
+}
+
+.item-wrap{
     margin-bottom:25px;
 }
 
@@ -9,6 +24,8 @@
 footer{
     margin-bottom:25px;
     margin-top:40px;
+    font-weight:bold;
+    opacity:0.5;
 }
 
 .highlight{
@@ -21,7 +38,6 @@ footer{
 }
 
 #banner{
-    margin:0 auto;
     min-width:50%;
     height:200px;
     background-size:cover;
@@ -33,33 +49,39 @@ footer{
     padding-top:11px;
     padding-bottom:11px;
     background-color: #50575f;
-    border-bottom:2px solid #fff;
+    border-bottom:2px solid #50575f;
     color:#fff;
     transition:all 200ms ease;
-    opacity:0.9;
+    opacity:1;
 }
 
 #menu-items:hover > a{
-    opacity:0.9;
+    opacity:1;
     color:#fff;
     text-decoration:none;
 }
 
+#menu-items-wrap .row, .container-fluid{
+    padding-left:0;
+    padding-right:0;
+    margin-left:0;
+    margin-right:0;
+}
+
 #menu-items:hover > a:hover{
-    opacity:1;
+}
+
+#menu-items:hover > a:hover i{
+    color:#f39c12;
 }
 
 #menu-items .nav2-selected{
-    opacity:1;
-    background-color:#f39c12;
+    background-color: #616972;
+    font-weight:bold;
 }
 
-#menu-items > a:first-child{
-    border-bottom-left-radius:75px;
-}
-
-#menu-items > a:last-child{
-    border-bottom-right-radius:75px;
+#menu-items .nav2-selected i{
+    color:#f39c12;
 }
 
 #add-new{

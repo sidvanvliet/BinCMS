@@ -2,12 +2,15 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
+
+    <h1 class="font-weight-bold">{{ \App\Helpers\SettingHelper::setting('name') }}</h1>
+
+    <div class="row mt-4">
 
         @if(count($items) != 0)
             @foreach($items as $item)
-                <div class="col-lg-4 col-sm-6 portfolio-item">
-                    <div class="card h-100">
+                <div class="col-lg-4 col-sm-6 item-wrap">
+                    <div class="card h-100 item">
                         <a href="{{ url('/post-' . $item->id) }}"><img class="card-img-top" src="{{ \App\Helpers\Image::getImage($item->id) }}" alt=""></a>
                         <div class="card-body">
                             <h4 class="card-title">
@@ -25,5 +28,8 @@
         @endif
 
     </div>
+
+    {{ $items->links() }}
+
 </div>
 @endsection

@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <h2>
+    <h2 class="font-weight-bold">
         Modify <i>{{ $post->item_name }}</i>
     </h2>
 

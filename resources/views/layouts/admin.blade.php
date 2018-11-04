@@ -15,7 +15,7 @@
 
     <!-- Styles -->
     @yield('styles')
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.materialdesignicons.com/3.0.39/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.3/aos.css">
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet">
@@ -23,7 +23,7 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="z-index:945238">
-            <div class="container">
+            <div class="container-fluid">
                 <a class="navbar-brand" href="{{ url('/') }}">
                     {{ config('app.name', 'Laravel') }} <span class="highlight">Admin</span>
                 </a>
@@ -60,31 +60,31 @@
             </div>
         </nav>
 
-        <div class="container">
-            <div class="row text-center" id="menu-items" data-aos="fade-down" data-aos-duration="600">
+        <div id="menu-items-wrap">
+            <div class="row container-fluid text-center" id="menu-items" data-aos="fade-down" data-aos-duration="600">
 
                 <a href="{{ Route('admin.dashboard') }}" class="col nav2-item {{ Request::is('admin/dashboard') ? 'nav2-selected' : '' }}">
-                    <i class="fas fa-diagnoses"></i>
+                    <i class="mdi mdi-playlist-edit"></i>
                     Portfolio
                 </a>
 
                 <a href="#" class="col nav2-item {{ Request::is('admin/') ? 'nav2-selected' : '' }}">
-                    <i class="fas fa-feather"></i>
+                    <i class="mdi mdi-google-analytics"></i>
                     Data insights
                 </a>
 
                 <a href="{{ Route('admin.settings') }}" class="col nav2-item {{ Request::is('admin/settings') ? 'nav2-selected' : '' }}">
-                    <i class="fas fa-cogs"></i>
+                    <i class="mdi mdi-lightbulb-on-outline"></i>
                     Settings
                 </a>
 
                 <a href="{{ Route('admin.styling') }}" class="col nav2-item {{ Request::is('admin/styling') ? 'nav2-selected' : '' }}">
-                    <i class="fab fa-delicious"></i>
+                    <i class="mdi mdi-auto-fix"></i>
                     Custom styling
                 </a>
 
                 <a href="{{ Route('home') }}" class="col nav2-item {{ Request::is('admin/') ? 'nav2-selected' : '' }}">
-                    <i class="fas fa-directions"></i>
+                    <i class="mdi mdi-export"></i>
                     Visit website
                 </a>
 

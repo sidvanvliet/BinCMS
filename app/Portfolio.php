@@ -2,15 +2,31 @@
 
 namespace App;
 
+use App\Helpers\SettingHelper;
 use Illuminate\Database\Eloquent\Model;
 
 class Portfolio extends Model
 {
     protected $table = 'portfolio';
 
-    public static function listItems($add_views = false)
+    public static function listItem($itemid)
     {
-        $items = Portfolio::where('item_is_public', '=', '1')->whereNull('deleted_at')->get();
+        $item = Portfolio::where([
+            'id' => $itemid,
+            'deleted_at' => null
+        ])->first();
+
+        return $item;
+    }
+
+    public static function listItems($add_views = false, $paginate = false)
+    {
+        if($paginate == true)
+        {
+            $items = Portfolio::where('item_is_public', '=', '1')->whereNull('deleted_at')->paginate(SettingHelper::setting('paginate'));
+        } else {
+            $items = Portfolio::where('item_is_public', '=', '1')->whereNull('deleted_at')->get();
+        }
 
         if($add_views == true)
         {

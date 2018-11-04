@@ -6,11 +6,14 @@
         <p class="alert {{ Session::get('alert-class', 'alert-info') }}">{{ Session::get('message') }}</p>
     @endif
 
-    <h2>
-        Portfolio items
-        <a href="{{ Route('item.new') }}" id="add-new">
-            Add new item
+    <div class="float-right" style="margin-top:10px;">
+        <a href="{{ Route('item.new') }}">
+            <button class="btn btn-dark btn-sm"><i class="mdi mdi-comment-plus-outline"></i> New post</button>
         </a>
+    </div>
+
+    <h2 class="font-weight-bold">
+        Portfolio items
     </h2>
 
     <div id="portfolio-items"></div>

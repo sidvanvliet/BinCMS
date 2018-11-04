@@ -21,6 +21,7 @@
     "autoload": {
         "files": [
             "app/Helpers/Image.php",
+            "app/Helpers/SettingHelper.php",
             "app/Helpers/Styling.php"
         ],
         "classmap": [

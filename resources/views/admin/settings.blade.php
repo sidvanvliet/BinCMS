@@ -1,35 +1,53 @@
 @extends('layouts.admin')
 
+@section('styles')
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+@endsection
+
 @section('content')
 
     <div id="app">
 
-        <h2>
-            Settings
-            <span id="add-new">
-                @verbatim
-                    {{ title }}
-                @endverbatim
-            </span>
+        <h2 class="font-weight-bold">
+            Website Settings
         </h2>
 
-        <div class="form-group">
-            <small>Website name</small>
-            <input type="text" class="form-control" v-model="title">
-        </div>
+        <form action="{{ Route('admin.updateSettings') }}" method="POST">
+
+            {{ @csrf_field() }}
+
+            <div class="form-group mt-4">
+                <b>Website name</b>
+                <input type="text" name="name" class="form-control" value="{{ \App\Helpers\SettingHelper::setting('name') }}">
+            </div>
+
+            <div class="form-group mt-4">
+                <b>Background colour<br></b>
+                <input type='text' id="cpicker" name="bgcolour">
+            </div>
+
+            <div class="form-group mt-4">
+                <b>How many items do you want to show per page?<br></b>
+                <input type="number" min="0" class="form-control" step="1" style="text-align:center;width:60px;" name="paginate" value="{{ \App\Helpers\SettingHelper::setting('paginate') }}">
+            </div>
+
+            <button class="btn btn-dark mt-4">
+                <i class="mdi mdi-content-save-settings-outline"></i> Save settings
+            </button>
+        </form>
 
     </div>
 
 @endsection
 
 @section('scripts')
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
     <script>
-        new Vue({
-            el: '#app',
-            data: ({
-                title: '{{ $settings[0]->value }}',
-            })
+        $("#cpicker").spectrum({
+            color: "{!! \App\Helpers\SettingHelper::setting('bgcolour') !!}",
+            preferredFormat: "hex",
+            showInput: true,
+            showInitial: true
         });
     </script>
 @endsection

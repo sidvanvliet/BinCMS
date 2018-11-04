@@ -22,6 +22,36 @@ class AdminController extends Controller
         return view('admin.settings')->with('settings', Setting::all());
     }
 
+    public function updateSettings(Request $request)
+    {
+    //    Why the fuck is this not working...?
+    //
+    //    $settings = ['name', 'bgcolour', 'paginate'];
+    //    foreach($settings as $setting)
+    //    {
+    //        $setting = Setting::where('setting', $setting)->get()[0];
+    //        $setting->value = $request[$setting];
+    //        $setting->save();
+    //    }
+
+        $setting = Setting::where('setting', 'name')->first();
+        $setting->value = $request['name'];
+        $setting->save();
+
+        $setting = Setting::where('setting', 'bgcolour')->first();
+        $setting->value = $request['bgcolour'];
+        $setting->save();
+
+        $setting = Setting::where('setting', 'paginate')->first();
+        $setting->value = $request['paginate'];
+        $setting->save();
+
+        Session::flash('message', 'Settings saved.');
+        Session::flash('alert-class', 'alert-success');
+
+        return redirect('/admin/dashboard');
+    }
+
     public function confirmTrash($id)
     {
         return view('admin.item.delete')->with('item', Portfolio::findOrFail($id));

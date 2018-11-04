@@ -11,6 +11,7 @@ Route::middleware(['auth', 'restrict'])->group(function () {
 
         Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
         Route::get('settings', 'AdminController@settings')->name('admin.settings');
+        Route::post('settings', 'AdminController@updateSettings')->name('admin.updateSettings');
         Route::get('styling', 'AdminController@styling')->name('admin.styling');
         Route::post('styling', 'AdminController@stylingUpdate');
 
@@ -36,5 +37,10 @@ Route::prefix('api')->group(function () {
 
 // Auth Routes
 Route::get('admin', 'Auth\LoginController@showLoginForm')->name('login');
+
+Route::get('/home', function(){
+    return redirect("/admin/dashboard");
+});
+
 Route::post('admin', 'Auth\LoginController@login');
 Route::post('logout', 'Auth\LoginController@logout')->name('logout');

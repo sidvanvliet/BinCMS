@@ -24,21 +24,18 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home')->with('items', Portfolio::listItems(true));
+        return view('home')->with('items', Portfolio::listItems(true, true));
     }
 
     public function item($itemid)
     {
-        $item = Portfolio::where([
-            'id' => $itemid,
-            'deleted_at' => null
-        ])->get();
+        $item = Portfolio::listItem($itemid);
 
         if(count($item) < 0)
         {
             return redirect('/');
         }
 
-        return view('item')->with('item', $item[0]);
+        return view('item')->with('item', $item);
     }
 }

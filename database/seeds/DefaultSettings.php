@@ -20,5 +20,10 @@ class DefaultSettings extends Seeder
             'setting'   => 'styling',
             'value'     => '*{   }',
         ]);
+
+        DB::table('settings')->insert([
+            'setting'   => 'paginate',
+            'value'     => '6',
+        ]);
     }
 }

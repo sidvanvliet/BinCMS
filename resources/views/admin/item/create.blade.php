@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <h2>
+    <h2 class="font-weight-bold">
         Create a new portfolio item
     </h2>
 

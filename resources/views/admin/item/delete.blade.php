@@ -6,7 +6,7 @@
 
 @section('content')
 
-    <h2>Confirm your action</h2>
+    <h2 class="font-weight-bold">Confirm your action</h2>
     <h5>You are about to permanently delete <b>{{ $item->item_name }}</b> ({{ $item->item_views }} views)</h5>
 
     <br><br>
