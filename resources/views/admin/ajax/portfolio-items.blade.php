@@ -22,12 +22,12 @@ function returnNumber($int)
 
                 <span class="put-right">
 
-                        <small class="item-views">
-                            <b>{{ number_format($item->homepage_views) }}</b> times shown, <b>{{ number_format($item->item_views) }}</b> clicked
+                        <small class="item-views col-sm-12">
+                            <b>{{ number_format($item->homepage_views) }}</b> times shown, <b>{{ number_format($item->item_views) }}</b> views
                         </small>
 
-                        <a href="{{ Route('item.modify', ['id' => $item->id]) }}"><button type="button" class="btn btn-primary btn-sm">Modify</button></a>
-                        <a href="{{ Route('item.trash', ['id' => $item->id]) }}"><button type="button" class="btn btn-danger btn-sm">Trash</button></a>
+                        <a href="{{ Route('item.modify', ['id' => $item->id]) }}"><button type="button" class="btn btn-primary btn-sm"><i class="mdi mdi-android-studio"></i> Modify</button></a>
+                        <a href="{{ Route('item.trash', ['id' => $item->id]) }}"><button type="button" class="btn btn-danger btn-sm"><i class="mdi mdi-trash-can-outline"></i> Trash</button></a>
 
                     </span>
                 <div class="clearfix"></div>

@@ -4,8 +4,9 @@
 <div class="container">
 
     <h1 class="font-weight-bold">{{ \App\Helpers\SettingHelper::setting('name') }}</h1>
+    <p>{{ \App\Helpers\SettingHelper::setting('subtitle') }}</p>
 
-    <div class="row mt-4">
+    <div class="row mt-5">
 
         @if(count($items) != 0)
             @foreach($items as $item)

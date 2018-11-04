@@ -83,7 +83,7 @@
 
         <div class="container">
             <footer>
-                &copy; {{ date("Y") }} Copyright BinCMS &times; Sid van Vliet - All Rights Reserved.
+                &copy; {{ date("Y") }} Copyright {{ \App\Helpers\SettingHelper::setting('name') }} - All rights reserved.<br><small class="font-weight-bold">Created using BinCMS</small>
             </footer>
         </div>
     </div>

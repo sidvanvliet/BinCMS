@@ -16,6 +16,13 @@ class Portfolio extends Model
             'deleted_at' => null
         ])->first();
 
+        Portfolio::where([
+            'id' => $itemid,
+            'deleted_at' => null
+        ])->update(
+            ['item_views' => ($item->item_views + 1)]
+        );
+
         return $item;
     }
 

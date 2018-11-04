@@ -7,7 +7,7 @@
 @section('content')
 
     <h2 class="font-weight-bold">
-        Modify <i>{{ $post->item_name }}</i>
+        {{ $post->item_name }}
     </h2>
 
     @if ($errors->any())

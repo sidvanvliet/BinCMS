@@ -38,12 +38,19 @@ class AdminController extends Controller
         $setting->value = $request['name'];
         $setting->save();
 
-        $setting = Setting::where('setting', 'bgcolour')->first();
-        $setting->value = $request['bgcolour'];
-        $setting->save();
+        if($request['bgcolour'] != null)
+        {
+            $setting = Setting::where('setting', 'bgcolour')->first();
+            $setting->value = $request['bgcolour'];
+            $setting->save();
+        }
 
         $setting = Setting::where('setting', 'paginate')->first();
         $setting->value = $request['paginate'];
+        $setting->save();
+
+        $setting = Setting::where('setting', 'subtitle')->first();
+        $setting->value = $request['subtitle'];
         $setting->save();
 
         Session::flash('message', 'Settings saved.');

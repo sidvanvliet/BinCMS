@@ -25,5 +25,15 @@ class DefaultSettings extends Seeder
             'setting'   => 'paginate',
             'value'     => '6',
         ]);
+
+        DB::table('settings')->insert([
+            'setting'   => 'bgcolour',
+            'value'     => '#f8fafc',
+        ]);
+
+        DB::table('settings')->insert([
+            'setting'   => 'subtitle',
+            'value'     => 'Welcome to my portfolio!',
+        ]);
     }
 }
