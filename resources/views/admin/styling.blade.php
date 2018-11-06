@@ -9,9 +9,9 @@
     <div id="app">
 
         <h2>
-            Custom styling
+            @lang('admin.styling')
             <span id="add-new">
-                This stylesheet overwrites all others
+                @lang('admin.styling_overwrite')
             </span>
         </h2>
 

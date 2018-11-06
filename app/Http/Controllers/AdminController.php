@@ -5,13 +5,13 @@ namespace App\Http\Controllers;
 use App\Media;
 use App\Portfolio;
 use App\Setting;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
-
     public function dashboard()
     {
         return view('admin.dashboard');
@@ -25,6 +25,18 @@ class AdminController extends Controller
     public function seo()
     {
         return view('admin.seo');
+    }
+
+    public function changeLanguage($lang)
+    {
+        $allowed = ['nl', 'en'];
+        if(in_array($lang, $allowed))
+        {
+            $user = User::find(\Auth::user()->id);
+            $user->language = $lang;
+            $user->save();
+        }
+        return back();
     }
 
     public function updateSeo(Request $request)
@@ -208,6 +220,11 @@ class AdminController extends Controller
             $animate = false;
         }
         return view('admin.ajax.portfolio-items')->with('items', Portfolio::adminListItems())->with('animate', $animate);
+    }
+
+    public function inlineUpdate(Request $request)
+    {
+        dd($request);
     }
 
 }

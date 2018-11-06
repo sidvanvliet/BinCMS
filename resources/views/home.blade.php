@@ -11,6 +11,13 @@
         @if(count($items) != 0)
             @foreach($items as $item)
                 <div class="col-lg-4 col-sm-6 item-wrap">
+                    @auth
+                        @if(\App\Helpers\SettingHelper::setting('admin_shortcuts') == "on")
+                            <a href="{{ Route('item.modify', ['id' => $item->id]) }}" title="Edit post">
+                                <i class="edit mdi mdi-pen"></i>
+                            </a>
+                        @endif
+                    @endauth
                     <div class="card h-100 item">
                         <a href="{{ url('/post-' . $item->id) }}"><img class="card-img-top" src="{{ \App\Helpers\Image::getImage($item->id) }}" alt=""></a>
                         <div class="card-body">
@@ -30,7 +37,7 @@
 
     </div>
 
-    {{ $items->links() }}
+    <br>{{ $items->links() }}
 
 </div>
 @endsection

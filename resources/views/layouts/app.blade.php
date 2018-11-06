@@ -82,8 +82,8 @@
 
         <div class="container">
             <footer>
-                &copy; {{ date("Y") }} Copyright {{ \App\Helpers\SettingHelper::setting('name') }} - All rights reserved.<br>
-                <small class="font-weight-bold">Created using BinCMS <i class="mdi mdi-flower-tulip"></i></small>
+                Copyright &copy; {{ date("Y") }} {{ \App\Helpers\SettingHelper::setting('name') }} - All rights reserved.<br>
+                <small class="font-weight-bold">Made with BinCMS <i class="mdi mdi-flower-tulip"></i></small>
             </footer>
         </div>
     </div>

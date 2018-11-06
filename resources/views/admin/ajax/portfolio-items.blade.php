@@ -25,11 +25,11 @@ $delay = 0;
 
                         <small class="item-views col-sm-12">
                             {!! $item->item_is_public == 0 ? "<i class='mdi mdi-incognito'></i> Private item &nbsp;|&nbsp; " : "" !!}
-                            <b>{{ number_format($item->homepage_views) }}</b> times shown, <b>{{ number_format($item->item_views) }}</b> views
+                            <b>{{ number_format($item->homepage_views) }}</b> @lang('admin.times_shown'), <b>{{ number_format($item->item_views) }}</b> @lang('admin.views')
                         </small>
 
-                        <a href="{{ Route('item.modify', ['id' => $item->id]) }}"><button type="button" class="btn btn-primary btn-sm"><i class="mdi mdi-android-studio"></i> Modify</button></a>
-                        <a href="{{ Route('item.trash', ['id' => $item->id]) }}"><button type="button" class="btn btn-danger btn-sm"><i class="mdi mdi-trash-can-outline"></i> Trash</button></a>
+                        <a href="{{ Route('item.modify', ['id' => $item->id]) }}"><button type="button" class="btn btn-primary btn-sm"><i class="mdi mdi-android-studio"></i> @lang('admin.modify')</button></a>
+                        <a href="{{ Route('item.trash', ['id' => $item->id]) }}"><button type="button" class="btn btn-danger btn-sm"><i class="mdi mdi-trash-can-outline"></i> @lang('admin.trash')</button></a>
 
                     </span>
                 <div class="clearfix"></div>
@@ -38,7 +38,10 @@ $delay = 0;
     @endforeach
 @else
     <br>
-    <h4>You don't have any portfolio items yet.</h4>
-    <a href="{{ Route('item.new') }}">Click here</a> to add your first portfolio item.
+    <h4>@lang('admin.no_items')</h4>
+    @lang('admin.add_firstitem', [
+        'link'      => '<a href="{{ Route("items.new") }}">',
+        'endlink'   => '</a>'
+    ])
     <br><br>
 @endif

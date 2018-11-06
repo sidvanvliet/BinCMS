@@ -13,7 +13,7 @@
 
     <div class="float-right" style="margin-top:10px;">
         <a href="{{ Route('item.new') }}">
-            <button class="btn btn-dark btn-sm"><i class="mdi mdi-comment-plus-outline"></i> New post</button>
+            <button class="btn btn-dark btn-sm"><i class="mdi mdi-comment-plus-outline"></i> @lang('admin.new_post')</button>
         </a>
     </div>
 

@@ -40,14 +40,14 @@
             <br><br>
 
             <div class="float-left">
-                <input type="submit" class="btn btn-primary" value="Save modified post">
+                <input type="submit" class="btn btn-primary" value="@lang('admin.save_modified')">
             </div>
 
             <div class="float-left" id="checkbox-new-item">
                 <div class="toggle-group">
                     <input type="checkbox" name="on-off-switch" id="on-off-switch" tabindex="1">
                     <label for="on-off-switch">
-                        Make this item private
+                        @lang('admin.make_item_private')
                     </label>
                     <div class="onoffswitch pull-right" aria-hidden="true">
                         <div class="onoffswitch-label">

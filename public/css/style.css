@@ -47,7 +47,7 @@ footer{
 }
 
 .highlight{
-    color:#0984e3;
+    color:#4c9be3;
 }
 
 .placeholder{
@@ -67,14 +67,64 @@ footer{
     padding-top:14px;
     padding-bottom:14px;
     background-color: #474f57;
-    border-bottom:3px solid #68737f;
+    border-bottom:2px solid #68737f;
     color:#fff;
     transition:all 200ms ease;
     opacity:1;
 }
 
 .nav2-item:hover{
-    border-bottom:3px solid #4c9be3;
+    border-bottom:2px solid #4c9be3;
+}
+
+@media only screen and (max-width:900px) {
+
+    .nav2-item{
+        width:100% !important;
+        padding-top:8px;
+        padding-bottom:8px;
+    }
+
+}
+
+.edit{
+    background-color:#3392D8;
+    position:absolute;
+    z-index:54398;
+    width:32px;
+    height:32px;
+    border-radius:50%;
+    color:#fff;
+    text-align:center;
+    left:4px;
+    top:-8px;
+    opacity:0;
+    font-size:16px;
+    padding:3px;
+    transition:opacity 200ms ease;
+}
+
+#flags{
+    margin-top:5px;
+    top:0px;
+    right:40px;
+}
+
+#flags form{
+    float:left;
+    margin-right:10px;
+}
+
+#flags form:after{
+    clear:both;
+}
+
+#flags form img{
+    cursor:pointer;
+}
+
+.item-wrap:hover .edit{
+    opacity:1;
 }
 
 #menu-items:hover > a{
@@ -96,15 +146,24 @@ footer{
 
 #menu-items .nav2-selected{
     background-color: #40474e;
-    border-bottom:3px solid #4c9be3;
+    border-bottom:2px solid #4c9be3;
 }
 
 #menu-items .nav2-selected i{
     color: #4c9be3;
 }
 
+#menu-items{
+    background:#474f57;
+}
+
 #add-new{
     font-size:14px;
+}
+
+#preview{
+    overflow:hidden;
+    max-width:100%;
 }
 
 #checkbox-new-item{

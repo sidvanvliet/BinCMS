@@ -19,7 +19,9 @@ class restrict
         if(Auth::user()->user_is_admin != 1)
         {
             return redirect('/');
+        } else {
+            \App::setLocale(Auth::user()->language);
+            return $next($request);
         }
-        return $next($request);
     }
 }

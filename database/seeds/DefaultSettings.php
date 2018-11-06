@@ -36,6 +36,11 @@ class DefaultSettings extends Seeder
             'value'     => 'Welcome to my portfolio!',
         ]);
 
+        DB::table('settings')->insert([
+            'setting'   => 'admin_shortcuts',
+            'value'     => '1',
+        ]);
+
         // SEO settings
 
         DB::table('settings')->insert([

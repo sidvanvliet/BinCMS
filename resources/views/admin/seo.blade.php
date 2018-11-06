@@ -17,22 +17,22 @@
             {{ @csrf_field() }}
 
             <div class="form-group mt-4">
-                <b>Website description</b>
+                <b>@lang('admin.website_desc')</b>
                 <input type="text" name="seo_description" class="form-control" value="{{ \App\Helpers\SettingHelper::setting('seo_description') }}">
             </div>
 
             <div class="form-group mt-4">
-                <b>Website keywords</b> <small>Seperated using a comma</small>
+                <b>@lang('admin.website_keywords')</b> <small>@lang('admin.seperated_comma')</small>
                 <input type="text" name="seo_keywords" class="form-control" value="{{ \App\Helpers\SettingHelper::setting('seo_keywords') }}">
             </div>
 
             <div class="form-group mt-4">
-                <b>Website language</b> <small>Using the country code (ex: <u>ru</u>, <u>nl</u> or <u>en</u>)</small>
+                <b>@lang('admin.website_language')</b> <small>@lang('admin.using_country_code')</small>
                 <input type="text" name="seo_language" class="form-control" value="{{ \App\Helpers\SettingHelper::setting('seo_language') }}">
             </div>
 
             <button class="btn btn-dark mt-4">
-                <i class="mdi mdi-content-save-settings-outline"></i> Save SEO settings
+                <i class="mdi mdi-content-save-settings-outline"></i> @lang('admin.seo_save')
             </button>
         </form>
 

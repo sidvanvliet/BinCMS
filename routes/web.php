@@ -9,6 +9,8 @@ Route::middleware(['auth', 'restrict'])->group(function () {
 
     Route::prefix('admin')->group(function () {
 
+        Route::post('setlang:{lang}', 'AdminController@changeLanguage')->name('language');
+
         Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 
         Route::get('seo', 'AdminController@seo')->name('admin.seo');

@@ -9,8 +9,8 @@
     <div class="text-center">
         <i class="mdi mdi-delete-empty" id="big-delete-sign"></i>
 
-        <h2 class="font-weight-bold">Hold up!</h2>
-        <h5>Are you sure you want to permanently delete <b>{{ $item->item_name }}</b> with {{ number_format($item->item_views) }} views</h5>
+        <h2 class="font-weight-bold">@lang('admin.holdup')</h2>
+        <h5>@lang('admin.remove_perma') <b>{{ $item->item_name }}</b>?</h5>
 
         <br><br>
 
@@ -18,13 +18,13 @@
             <form action="/admin/dashboard/action:trash={{ $item->id }}" method="POST">
                 {{ @csrf_field() }}
                 <input type="hidden" name="itemid" value="{{ $item->id }}">
-                <input type="submit" class="btn btn-danger" value="I know, continue">
+                <input type="submit" class="btn btn-danger" value="@lang('admin.confirm')">
             </form>
         </div>
 
         <div class="mt-2">
             <a href="{{ Route('admin.dashboard') }}">
-                No, take me back.
+                @lang('admin.no_goback')
             </a>
         </div>
 

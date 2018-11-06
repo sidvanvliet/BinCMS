@@ -24,7 +24,7 @@
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-dark bg-dark" style="z-index:945238">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{ url('/') }}">
+                <a class="navbar-brand" href="{{ url('/admin') }}">
                     <i class="mdi mdi-flower-tulip"></i> {{ config('app.name') }} <span class="highlight">Admin</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -32,18 +32,28 @@
                 </button>
 
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
 
                     <ul class="navbar-nav ml-auto">
+
+                        <div id="flags">
+                            <form action="{{ route('language', 'en') }}" method="POST" id="cl-en">
+                                {{ @csrf_field() }}
+                                <img src="{{ asset('png/gb.png') }}" alt="English" onclick="event.preventDefault();
+                                                     document.getElementById('cl-en').submit();">
+                            </form>
+                            <form action="{{ route('language', 'nl') }}" method="POST" id="cl-nl">
+                                {{ @csrf_field() }}
+                                <img src="{{ asset('png/nl.png') }}" alt="Dutch" onclick="event.preventDefault();
+                                                     document.getElementById('cl-nl').submit();">
+                            </form>
+                        </div>
+
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                 {{ Auth::user()->name }} <span class="caret"></span>
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('admin.dashboard') }}">Admin dashboard</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
@@ -63,29 +73,29 @@
         <div id="menu-items-wrap">
             <div class="row container-fluid text-center" id="menu-items">
 
-                <a href="{{ Route('admin.dashboard') }}" class="col nav2-item {{ Request::is('admin/dashboard') ? 'nav2-selected' : '' }}">
+                <a href="{{ Route('admin.dashboard') }}" class="col-lg-2 offset-lg-1 col-sm-12 nav2-item {{ Request::is('admin/dashboard') ? 'nav2-selected' : '' }}">
                     <i class="mdi mdi-playlist-edit"></i>
                     Portfolio
                 </a>
 
-                <a href="{{ Route('admin.seo') }}" class="col nav2-item {{ Request::is('admin/seo') ? 'nav2-selected' : '' }}">
+                <a href="{{ Route('admin.settings') }}" class="col-lg-2 col-sm-12 nav2-item {{ Request::is('admin/settings') ? 'nav2-selected' : '' }}">
+                    <i class="mdi mdi-lightbulb-on-outline"></i>
+                    @lang('admin.settings')
+                </a>
+
+                <a href="{{ Route('admin.seo') }}" class="col-lg-2 col-sm-12 nav2-item {{ Request::is('admin/seo') ? 'nav2-selected' : '' }}">
                     <i class="mdi mdi-chart-bar"></i>
                     SEO
                 </a>
 
-                <a href="{{ Route('admin.settings') }}" class="col nav2-item {{ Request::is('admin/settings') ? 'nav2-selected' : '' }}">
-                    <i class="mdi mdi-lightbulb-on-outline"></i>
-                    Settings
-                </a>
-
-                <a href="{{ Route('admin.styling') }}" class="col nav2-item {{ Request::is('admin/styling') ? 'nav2-selected' : '' }}">
+                <a href="{{ Route('admin.styling') }}" class="col-lg-2 col-sm-12 nav2-item {{ Request::is('admin/styling') ? 'nav2-selected' : '' }}">
                     <i class="mdi mdi-auto-fix"></i>
-                    Custom styling
+                    @lang('admin.styling')
                 </a>
 
-                <a href="{{ Route('home') }}" class="col nav2-item {{ Request::is('admin/') ? 'nav2-selected' : '' }}">
+                <a href="{{ Route('home') }}" class="col-lg-2 col-sm-12 nav2-item {{ Request::is('admin/') ? 'nav2-selected' : '' }}">
                     <i class="mdi mdi-export"></i>
-                    Visit website
+                    @lang('admin.visit')
                 </a>
 
             </div>

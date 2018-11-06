@@ -7,7 +7,7 @@
 @section('content')
 
     <h2 class="font-weight-bold">
-        Create a new portfolio item
+        @lang('admin.create_new_post')
     </h2>
 
     @if ($errors->any())
@@ -29,7 +29,7 @@
 
             <input type="file" name="image" id="image"><br><br>
 
-            <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="Give this portfolio item a name.." required>
+            <input type="text" name="name" class="form-control" value="{{ old('name') }}" placeholder="@lang('admin.give_item_name')" required>
 
             <div style="background-color:#fff;">
                 <textarea name="content" value="{{ old('content') }}" id="item-content" cols="30" rows="10" class="form-control" required></textarea>
@@ -38,14 +38,14 @@
             <br><br>
 
             <div class="float-left">
-                <input type="submit" class="btn btn-primary" value="Commit">
+                <input type="submit" class="btn btn-primary" value="@lang('admin.save')">
             </div>
 
             <div class="float-left" id="checkbox-new-item">
                 <div class="toggle-group">
                     <input type="checkbox" name="on-off-switch" id="on-off-switch" tabindex="1">
                     <label for="on-off-switch">
-                        Make this item private
+                        @lang('admin.make_item_private')
                     </label>
                     <div class="onoffswitch pull-right" aria-hidden="true">
                         <div class="onoffswitch-label">

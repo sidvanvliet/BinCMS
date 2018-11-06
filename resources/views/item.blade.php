@@ -16,7 +16,14 @@
 
         <div class="mt-5">
             <h1 class="font-weight-bold">&#8220;{{ $item->item_name }}&#8221;</h1>
-            <small class="font-weight-bold">Posted {{ $item->created_at->diffForHumans() }}</small>
+            <small class="font-weight-bold">
+                Posted {{ $item->created_at->diffForHumans() }}
+                @auth
+                     | <a href="{{ Route('item.modify', ['id' => $item->id]) }}">
+                        Edit this post
+                    </a>
+                @endauth
+            </small>
 
             <p class="mt-3">
                 {{ $item->item_description }}
