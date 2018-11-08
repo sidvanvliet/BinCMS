@@ -24,8 +24,8 @@
                             <img src="{{ asset('png/flags/unk.png') }}" class="flagimg" id="record-{{ $visit->id }}" data-itemid="{{ $visit->id }}" data-ip="{{ $visit->ipaddr }}">
                             {{ $visit->ipaddr }}
                         </th>
-                        <td id="country-{{ $visit->id }}"></td>
-                        <td id="region-{{ $visit->id }}"></td>
+                        <td id="country-{{ $visit->id }}">—</td>
+                        <td id="region-{{ $visit->id }}">—</td>
                         <td title="{{ $visit->created_at }}">{{ $visit->created_at->diffForHumans() }}</td>
                     </tr>
                 @endforeach
