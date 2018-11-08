@@ -26,7 +26,7 @@
                         </th>
                         <td id="country-{{ $visit->id }}"></td>
                         <td id="region-{{ $visit->id }}"></td>
-                        <td>{{ $visit->created_at->diffForHumans() }}</td>
+                        <td title="{{ $visit->created_at }}">{{ $visit->created_at->diffForHumans() }}</td>
                     </tr>
                 @endforeach
             </tbody>
@@ -73,8 +73,12 @@
                             $('#country-' + itemid).html(output[1]);
                             $('#region-' + itemid).html(output[2]);
                         } else {
+                            output = output.split('#');
+
                             $('#record-' + itemid).attr('src', '{{ asset('png/flags/') }}/cross.png');
                             $('#record-' + itemid).css('opacity', '0.3');
+                            $('#country-' + itemid).html('—');
+                            $('#region-' + itemid).html('—');
                         }
                     }
                 });
