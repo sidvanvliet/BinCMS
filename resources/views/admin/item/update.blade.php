@@ -28,6 +28,22 @@
             {{ @csrf_field() }}
 
             <input type="hidden" name="pid" value="{{ $post->id }}">
+            <input type="hidden" name="change_img" id="change_img" value="0">
+
+            <br>
+
+            @if(\App\Helpers\Image::getImage($post->id) != null)
+                <div class="upd-img" style="background-image:url('{{ \App\Helpers\Image::getImage($post->id) }}')">
+                    <div class="upd-img-edit">
+                        <i class="mdi mdi-close-circle-outline"></i>
+                    </div>
+                </div>
+            @endif
+
+            <div id="image-wrap">
+                <input type="file" name="image" id="image">
+                <i id="cancel-newimg" class="mdi mdi-close-circle-outline"></i>
+            </div>
 
             <br>
 
@@ -68,6 +84,16 @@
     <script src="{{ asset('editor/editor.js') }}"></script>
     <script>
         $(document).ready( function() {
+            $(document).on('click', '.upd-img', function(){
+                $('#image-wrap').css('display', 'block');
+                $('.upd-img').css('display', 'none');
+                $('#change_img').val(1);
+            });
+            $(document).on('click', '#cancel-newimg', function(){
+                $('#image-wrap').css('display', 'none');
+                $('.upd-img').css('display', 'block');
+                $('#change_img').val(0);
+            });
             // $("#item-content").Editor();
         });
     </script>

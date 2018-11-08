@@ -28,9 +28,7 @@ class Portfolio extends Model
 
     public static function adminListItems()
     {
-        $items = Portfolio::whereNull('deleted_at');
-
-        $items = Portfolio::whereNull('deleted_at')->get();
+        $items = Portfolio::whereNull('deleted_at')->orderBy('id', 'desc')->get();
 
         return $items;
     }

@@ -6,11 +6,11 @@
     <h1 class="font-weight-bold">{{ \App\Helpers\SettingHelper::setting('name') }}</h1>
     <p>{{ \App\Helpers\SettingHelper::setting('subtitle') }}</p>
 
-    <div class="row mt-5">
+    <div class="row mt-5" style="margin-left:-15px;">
 
         @if(count($items) != 0)
             @foreach($items as $item)
-                <div class="col-lg-4 col-sm-6 item-wrap">
+                <div class="col-lg-6 col-sm-6 item-wrap">
                     @auth
                         @if(\App\Helpers\SettingHelper::setting('admin_shortcuts') == "on")
                             <a href="{{ Route('item.modify', ['id' => $item->id]) }}" title="Edit post">

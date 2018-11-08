@@ -133,6 +133,31 @@ class AdminController extends Controller
 
         $item->item_name        = $request['name'];
         $item->item_description = $request['content'];
+
+        if($request['change_img'] == 1)
+        {
+            // first, find the current media and set deleted_at
+            $curimg = Media::where('item_id', $item->id)->first();
+            $curimg->deleted_at = date("Y-m-d H:i:s");
+            $curimg->save();
+
+            // now upload the new image
+            $file = $request->file('image');
+
+            if(count($file) > 0)
+            {
+                $filename = hash('sha1', $item->id . uniqid()) . "." . $file->getClientOriginalExtension();
+                $destinationPath = 'content';
+                $anonyFileName = $filename;
+                $file->move($destinationPath, $anonyFileName);
+
+                $media = new Media;
+                $media->item_id = $item->id;
+                $media->filename = $filename;
+                $media->save();
+            }
+        }
+
         if(isset($request->{'on-off-switch'}))
         {
             $item->item_is_public = 0;
@@ -195,7 +220,7 @@ class AdminController extends Controller
 
         if(count($file) > 0)
         {
-            $filename = hash('sha1', $item->id) . "." . $file->getClientOriginalExtension();
+            $filename = hash('sha1', $item->id . uniqid()) . "." . $file->getClientOriginalExtension();
             $destinationPath = 'content';
             $anonyFileName = $filename;
             $file->move($destinationPath, $anonyFileName);
