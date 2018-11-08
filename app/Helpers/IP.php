@@ -9,6 +9,6 @@ class IP
         $json = file_get_contents('http://getcitydetails.geobytes.com/GetCityDetails?fqcn=' . $ip);
         $json = json_decode($json);
 
-        return $json->geobytesinternet;
+        return $json->geobytesinternet . "#" . $json->geobytescountry . "#" . $json->geobytesregion;
     }
 }

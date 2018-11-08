@@ -5,13 +5,15 @@
     <div id="app">
 
         <h2 class="font-weight-bold">
-            Insights
+            Insights <small><img id="gather" src="{{ asset('gif/loader.gif') }}"></small>
         </h2>
 
         <table class="table table-striped">
             <thead>
                 <tr>
                     <th scope="col">Country / IP</th>
+                    <th scope="col">Country</th>
+                    <th scope="col">Region/Province</th>
                     <th scope="col">Visited</th>
                 </tr>
             </thead>
@@ -22,13 +24,14 @@
                             <img src="{{ asset('png/flags/unk.png') }}" class="flagimg" id="record-{{ $visit->id }}" data-itemid="{{ $visit->id }}" data-ip="{{ $visit->ipaddr }}">
                             {{ $visit->ipaddr }}
                         </th>
+                        <td id="country-{{ $visit->id }}"></td>
+                        <td id="region-{{ $visit->id }}"></td>
                         <td>{{ $visit->created_at->diffForHumans() }}</td>
                     </tr>
                 @endforeach
             </tbody>
         </table>
-
-        <span id="gather"><img src="{{ asset('gif/loader.gif') }}"> Loading country flags..</span><br>
+        <br>
 
         {{ $visits->links() }}
 
@@ -44,7 +47,7 @@
             setInterval(function(){
                 if(itemscount == itemcount)
                 {
-                    $('#gather').empty();
+                    $('#gather').hide();
                 }
             }, 100);
             $('.flagimg').each(function(){
@@ -62,11 +65,16 @@
                     success: function(output)
                     {
                         itemscount++;
-                        if(output != "")
+                        if(output != "##")
                         {
-                            $('#record-' + itemid).attr('src', '{{ asset('png/flags/') }}/' + output + '.png');
+                            output = output.split('#');
+
+                            $('#record-' + itemid).attr('src', '{{ asset('png/flags/') }}/' + output[0] + '.png');
+                            $('#country-' + itemid).html(output[1]);
+                            $('#region-' + itemid).html(output[2]);
                         } else {
-                            $('#record-' + itemid).attr('src', '{{ asset('png/flags/') }}/' + 'unk' + '.png');
+                            $('#record-' + itemid).attr('src', '{{ asset('png/flags/') }}/cross.png');
+                            $('#record-' + itemid).css('opacity', '0.3');
                         }
                     }
                 });
