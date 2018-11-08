@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Helpers\IP;
 use App\Media;
 use App\Portfolio;
+use App\Visit;
 use App\Setting;
 use App\User;
 use Illuminate\Http\Request;
@@ -76,10 +78,28 @@ class AdminController extends Controller
         $setting->value = $request['name'];
         $setting->save();
 
+        if(isset($request{'show-only-image'}))
+        {
+            $setting = Setting::where('setting', 'show_only_image')->first();
+            $setting->value = "on";
+            $setting->save();
+        } else {
+            $setting = Setting::where('setting', 'show_only_image')->first();
+            $setting->value = "off";
+            $setting->save();
+        }
+
         if($request['bgcolour'] != null)
         {
             $setting = Setting::where('setting', 'bgcolour')->first();
             $setting->value = $request['bgcolour'];
+            $setting->save();
+        }
+
+        if($request['layout'] >= 1 && $request['layout'] <= 12)
+        {
+            $setting = Setting::where('setting', 'layout')->first();
+            $setting->value = $request['layout'];
             $setting->save();
         }
 
@@ -92,15 +112,26 @@ class AdminController extends Controller
         $setting->save();
 
         Session::flash('title', 'All done!');
-        Session::flash('message', 'Settings saved.');
+        Session::flash('message', 'Your settings have been saved.');
         Session::flash('alert-class', 'alert-success');
 
-        return redirect('/admin/dashboard');
+        return redirect('/admin/settings');
     }
 
     public function confirmTrash($id)
     {
         return view('admin.item.delete')->with('item', Portfolio::findOrFail($id));
+    }
+
+    public function insights()
+    {
+        return view('admin.insights')->with('visits', Visit::paginate(10));
+    }
+
+    public function getFlag(Request $request)
+    {
+        $country = IP::getCountryByIp($request['ipaddr']);
+        echo $country;
     }
 
     public function trash(Request $req)

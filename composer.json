@@ -21,6 +21,7 @@
     "autoload": {
         "files": [
             "app/Helpers/Image.php",
+            "app/Helpers/IP.php",
             "app/Helpers/SettingHelper.php",
             "app/Helpers/Styling.php"
         ],

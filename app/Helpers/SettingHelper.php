@@ -9,4 +9,9 @@ class SettingHelper
     {
         return Setting::getSettingValue($setting);
     }
+    public static function buildcol()
+    {
+        $value = self::setting("layout");
+        return "col-" . (12/$value);
+    }
 }

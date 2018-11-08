@@ -73,14 +73,19 @@
         <div id="menu-items-wrap">
             <div class="row container-fluid text-center" id="menu-items">
 
-                <a href="{{ Route('admin.dashboard') }}" class="col-lg-2 offset-lg-1 col-sm-12 nav2-item {{ Request::is('admin/dashboard') ? 'nav2-selected' : '' }}">
+                <a href="{{ Route('admin.dashboard') }}" class="col-lg-2 col-sm-12 nav2-item {{ Request::is('admin/dashboard') ? 'nav2-selected' : '' }}">
                     <i class="mdi mdi-playlist-edit"></i>
-                    Portfolio
+                    Portfolio items
                 </a>
 
                 <a href="{{ Route('admin.settings') }}" class="col-lg-2 col-sm-12 nav2-item {{ Request::is('admin/settings') ? 'nav2-selected' : '' }}">
                     <i class="mdi mdi-lightbulb-on-outline"></i>
                     @lang('admin.settings')
+                </a>
+
+                <a href="{{ Route('admin.insights') }}" class="col-lg-2 col-sm-12 nav2-item {{ Request::is('admin/insights') ? 'nav2-selected' : '' }}">
+                    <i class="mdi mdi-chart-bubble"></i>
+                    Insights
                 </a>
 
                 <a href="{{ Route('admin.seo') }}" class="col-lg-2 col-sm-12 nav2-item {{ Request::is('admin/seo') ? 'nav2-selected' : '' }}">
@@ -102,6 +107,14 @@
         </div>
 
         <main class="container py-4 mt-5">
+            @if(Session::has('message'))
+                <div class="alert {{ Session::get('alert-class', 'alert-info') }} alert-dismissible fade show" role="alert">
+                    <strong>{{ Session::get('title') }}</strong> {{ Session::get('message') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             @yield('content')
         </main>
 

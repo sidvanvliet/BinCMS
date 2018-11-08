@@ -37,8 +37,18 @@ class DefaultSettings extends Seeder
         ]);
 
         DB::table('settings')->insert([
+            'setting'   => 'show_only_image',
+            'value'     => 'off',
+        ]);
+
+        DB::table('settings')->insert([
+            'setting'   => 'layout',
+            'value'     => '2',
+        ]);
+
+        DB::table('settings')->insert([
             'setting'   => 'admin_shortcuts',
-            'value'     => '1',
+            'value'     => 'on',
         ]);
 
         // SEO settings

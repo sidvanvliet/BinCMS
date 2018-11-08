@@ -13,6 +13,9 @@ Route::middleware(['auth', 'restrict'])->group(function () {
 
         Route::get('dashboard', 'AdminController@dashboard')->name('admin.dashboard');
 
+        Route::get('insights', 'AdminController@insights')->name('admin.insights');
+        Route::post('insights:getflag', 'AdminController@getFlag');
+
         Route::get('seo', 'AdminController@seo')->name('admin.seo');
         Route::post('seo', 'AdminController@updateSeo')->name('admin.updateSEO');
 

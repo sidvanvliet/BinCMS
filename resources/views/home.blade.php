@@ -10,7 +10,7 @@
 
         @if(count($items) != 0)
             @foreach($items as $item)
-                <div class="col-lg-6 col-sm-6 item-wrap">
+                <div class="{{ \App\Helpers\SettingHelper::buildcol() }} item-wrap">
                     @auth
                         @if(\App\Helpers\SettingHelper::setting('admin_shortcuts') == "on")
                             <a href="{{ Route('item.modify', ['id' => $item->id]) }}" title="Edit post">
@@ -20,12 +20,14 @@
                     @endauth
                     <div class="card h-100 item">
                         <a href="{{ url('/post-' . $item->id) }}"><img class="card-img-top" src="{{ \App\Helpers\Image::getImage($item->id) }}" alt=""></a>
-                        <div class="card-body">
-                            <h4 class="card-title">
-                                <a href="{{ url('/post-' . $item->id) }}">{{ $item->item_name }}</a>
-                            </h4>
-                            <p class="card-text">{{ substr($item->item_description, 0, 120) }}<?php if(strlen($item->item_description) > 219) { echo "..."; } ?></p>
-                        </div>
+                        @if(\App\Helpers\SettingHelper::setting('show_only_image') != "on")
+                            <div class="card-body">
+                                <h4 class="card-title">
+                                    <a href="{{ url('/post-' . $item->id) }}">{{ $item->item_name }}</a>
+                                </h4>
+                                <p class="card-text">{{ substr($item->item_description, 0, 120) }}<?php if(strlen($item->item_description) > 219) { echo "..."; } ?></p>
+                            </div>
+                        @endif
                     </div>
                 </div>
             @endforeach

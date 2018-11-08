@@ -14,6 +14,7 @@ return [
 
     'modify'            => 'Modify',
     'trash'             => 'Trash',
+    'enabled'           => 'Enabled',
 
     'holdup'            => 'Hold up!',
     'remove_perma'      => 'Are you sure you want to permanently delete',
@@ -43,5 +44,7 @@ return [
 
     'create_new_post'   => 'Create a new post',
     'give_item_name'    => 'Give this post a title..',
+    'show_only_image'   => 'Only show the image of the post',
+    'layout'            => 'How many items should there be on each row?',
 
 ];

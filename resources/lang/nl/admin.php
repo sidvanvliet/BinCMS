@@ -14,6 +14,7 @@ return [
 
     'modify'            => 'Bewerk',
     'trash'             => 'Verwijder',
+    'enabled'           => 'Ingeschakeld',
 
     'holdup'            => 'Wacht!',
     'remove_perma'      => 'Weet je zeker dat je het volgende item wilt verwijderen: ',
@@ -43,5 +44,7 @@ return [
 
     'create_new_post'   => 'Maak een nieuwe post aan',
     'give_item_name'    => 'Geef deze post een titel..',
+    'show_only_image'   => 'Laat alleen de afbeelding van de post zien',
+    'layout'            => 'Hoeveel items wilt u naast elkaar hebben staan op iedere regel?',
 
 ];
